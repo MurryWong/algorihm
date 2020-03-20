@@ -2,14 +2,14 @@
 
 class QuickSort
 {
-    public function sort(array $arr)
+    public function execute(array $arr)
     {
-        // return $this->qucickSort($arr);
+        return $this->sort($arr);
 
-        return $this->qucickSort2($arr, 0, count($arr) - 1);
+        // return $this->qucickSort2($arr, 0, count($arr) - 1);
     }
 
-    public function qucickSort($arr)
+    public function sort($arr)
     {
         $len = count($arr);
 
@@ -28,7 +28,7 @@ class QuickSort
             }
         }
 
-        return array_merge($this->qucickSort($less), [$pivot], $this->qucickSort($greater));
+        return array_merge($this->sort($less), [$pivot], $this->sort($greater));
     }
 
     public function qucickSort2(&$arr, $left, $right)
