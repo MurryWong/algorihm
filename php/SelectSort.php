@@ -11,15 +11,13 @@ class SelectSort
     {
         $len = count($arr);
 
-        if ($len <= 1 ) {
+        if ($len <= 1) {
             return $arr;
         }
 
-        for($i = 0; $i < $len - 1; $i++)
-        {
+        for ($i = 0; $i < $len - 1; $i++) {
             $min = $i;
-            for($j = $i+1; $j < $len; $j++)
-            {
+            for ($j = $i + 1; $j < $len; $j++) {
                 if ($arr[$j] < $arr[$min]) {
                     $min = $j;
                 }

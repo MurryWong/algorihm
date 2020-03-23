@@ -11,22 +11,20 @@ class InsertSort
     {
         $len = count($arr);
 
-        if ($len <= 1 ) {
+        if ($len <= 1) {
             return $arr;
         }
 
-        for($i = 1; $i < $len; $i++)
-        {
+        for ($i = 1; $i < $len; $i++) {
             $cur = $arr[$i];
 
             $j = $i - 1;
-            while($j >= 0 && $arr[$j] > $cur)
-            {
-                $arr[$j+1] = $arr[$j];
+            while ($j >= 0 && $arr[$j] > $cur) {
+                $arr[$j + 1] = $arr[$j];
                 $j--;
             }
 
-            $arr[$j+1] = $cur;
+            $arr[$j + 1] = $cur;
         }
 
         return $arr;

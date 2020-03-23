@@ -4,7 +4,7 @@ class MergeSort
 {
     public function execute(array $arr)
     {
-        return $this->sort2($arr);
+        return $this->sort($arr);
     }
 
     public function sort($arr)
@@ -15,9 +15,9 @@ class MergeSort
         }
 
         $mid_len = intval($len / 2) + ($len & 1);
-        $arr = array_chunk($arr, $mid_len);
+        $arr2d = array_chunk($arr, $mid_len);
 
-        return $this->merge($this->sort($arr[0]), $this->sort($arr[1]));
+        return $this->merge($this->sort($arr2d[0]), $this->sort($arr2d[1]));
     }
 
     private function merge($one, $two)

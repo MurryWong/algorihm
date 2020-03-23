@@ -11,7 +11,7 @@ class BubbleSort
     {
         $len = count($arr);
 
-        if ($len <= 1 ) {
+        if ($len <= 1) {
             return $arr;
         }
 

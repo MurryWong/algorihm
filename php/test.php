@@ -5,6 +5,7 @@ require './BubbleSort.php';
 require './SelectSort.php';
 require './InsertSort.php';
 require './MergeSort.php';
+require './ShellSort.php';
 
 $testCase = [
     [],
@@ -21,7 +22,8 @@ $testCase = [
 // $sort = new BubbleSort();
 // $sort = new SelectSort();
 // $sort = new InsertSort();
-$sort = new MergeSort();
+// $sort = new MergeSort();
+$sort = new ShellSort();
 foreach ($testCase as $case) {
     echo implode(', ', $sort->execute($case)) . PHP_EOL;
 }
