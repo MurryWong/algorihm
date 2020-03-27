@@ -6,10 +6,11 @@
  * 请找出数组中任意一个重复的数字
  */
 
-// 三种可实现的方式：
-// 1. 排序后比较，时间复杂度：O(nlogn)
-// 2. 利用哈希表，时间复杂度：O(n)，空间复杂度：O(n)
-// 3. 利用数组下标，时间复杂度：O(n)，空间复杂度：O(n)
+// 四种可实现的方式：
+// 1. 双重循环，时间复杂度：O(n^2)
+// 2. 排序后比较，时间复杂度：O(nlogn)
+// 3. 利用哈希表，时间复杂度：O(n)，空间复杂度：O(n)
+// 4. 利用数组下标，时间复杂度：O(n)，空间复杂度：O(1)
 
 $arr = [
     [0, 1],
@@ -23,12 +24,31 @@ foreach ($arr as $case) {
     echo method1($case) . PHP_EOL;
     echo method2($case) . PHP_EOL;
     echo method3($case) . PHP_EOL;
+    echo method4($case) . PHP_EOL;
 
     echo PHP_EOL;
 }
 
-// 1. 排序后比较
+
+// 1. 双重循环
 function method1($arr)
+{
+    $len = count($arr);
+
+    for ($i = 0; $i < $len; $i++) {
+        $cur = $arr[$i];
+        for ($j = $i + 1; $j < $len; $j++) {
+            if ($arr[$j] == $cur) {
+                return $cur;
+            }
+        }
+    }
+
+    return -1;
+}
+
+// 2. 排序后比较
+function method2($arr)
 {
     sort($arr);
 
@@ -42,8 +62,8 @@ function method1($arr)
     return -1;
 }
 
-// 2. 利用哈希表
-function method2($arr)
+// 3. 利用哈希表
+function method3($arr)
 {
     $map = [];
 
@@ -58,8 +78,8 @@ function method2($arr)
     return -1;
 }
 
-// 3. 利用数组下标
-function method3($arr)
+// 4. 利用数组下标
+function method4($arr)
 {
     $len = count($arr);
 
@@ -86,5 +106,3 @@ function swap(&$x, &$y)
     $x = $y;
     $y = $tmp;
 }
-
-
