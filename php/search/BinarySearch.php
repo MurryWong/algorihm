@@ -1,7 +1,23 @@
 <?php
 
+$arrs = [
+    [],
+    [1, 3],
+    [1, 2, 3, 5, 9]
+];
+
+$key = 3;
+foreach ($arrs as $case) {
+    echo binary_search($case, $key) . PHP_EOL;
+}
+
+echo "递归版" . PHP_EOL;
+foreach ($arrs as $case) {
+    echo binary_search2($case, 0, count($case) - 1, $key) . PHP_EOL;
+}
+
 // 非递归
-function binarySearch($arr, $key)
+function binary_search($arr, $key)
 {
     $len = count($arr);
 
@@ -24,7 +40,7 @@ function binarySearch($arr, $key)
 }
 
 // 递归
-function binarySearch2($arr, $left, $right, $key)
+function binary_search2($arr, $left, $right, $key)
 {
     if ($left > $right) {
         return -1;
@@ -34,25 +50,8 @@ function binarySearch2($arr, $left, $right, $key)
     if ($arr[$mid] == $key) {
         return $mid;
     } elseif ($arr[$mid] > $key) {
-        return binarySearch2($arr, $left, $mid - 1, $key);
+        return binary_search2($arr, $left, $mid - 1, $key);
     }
 
-    return binarySearch2($arr, $mid + 1, $right, $key);
-}
-
-$arrs = [
-    [],
-    [1, 3],
-    [1, 2, 3, 5, 9]
-];
-
-$key = 3;
-
-foreach ($arrs as $case) {
-    echo binarySearch($case, $key) . PHP_EOL;
-}
-
-echo "递归版" . PHP_EOL;
-foreach ($arrs as $case) {
-    echo binarySearch2($case, 0, count($case) - 1, $key) . PHP_EOL;
+    return binary_search2($arr, $mid + 1, $right, $key);
 }
