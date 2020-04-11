@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-func main()  {
-	arr := [][]int {
+func main() {
+	arr := [][]int{
 		{1},
 		{2, 1},
 		{1, 4, 3},
@@ -11,7 +11,7 @@ func main()  {
 		{1, 3, 4, 2, 5, 7},
 	}
 
-	for _, oneCase := range arr{
+	for _, oneCase := range arr {
 		fmt.Println(selectSort(oneCase[:]))
 	}
 }
@@ -21,7 +21,7 @@ func selectSort(arr []int) []int {
 
 	for i := 1; i <= length-1; i++ {
 		cur := arr[i]
-		j := i-1
+		j := i - 1
 		for j >= 0 && arr[j] > cur {
 			arr[j+1] = arr[j]
 			j--
