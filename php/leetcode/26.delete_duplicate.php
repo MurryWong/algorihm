@@ -1,5 +1,18 @@
 <?php
 
+$arr = [
+    [1, 2, 3, 4, 5, 6],
+    [1, 2, 2, 3, 4, 5, 5],
+];
+
+foreach ($arr as $case) {
+    echo implode(',', $case) . PHP_EOL;
+    echo removeDuplicates($case) . PHP_EOL;
+    echo implode(',', $case) . PHP_EOL;
+
+    echo PHP_EOL;
+}
+
 function removeDuplicates(&$nums)
 {
     $len = count($nums);
